@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#FFF8FB" />
+    <title>For Rosie</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell" aria-live="polite">
+      <!-- Intro screen -->
+      <section class="screen screen--active" id="intro" aria-labelledby="intro-title">
+        <div class="intro-content">
+          <p class="eyebrow">A SMALL NOTE</p>
+          <h1 id="intro-title">Hi Rosie<span class="pink-dot">.</span></h1>
+          <p class="subtitle">I made something for you.</p>
+          <button class="brutal-button brutal-button--pink" id="open-button" type="button">Open <span aria-hidden="true">↗</span></button>
+        </div>
+      </section>
+
+      <!-- Question screen -->
+      <section class="screen" id="question" aria-labelledby="question-title" hidden>
+        <div class="question-content">
+          <p class="eyebrow">BE HONEST</p>
+          <h2 id="question-title">Do you<br />miss me<span class="pink-dot">?</span></h2>
+          <div class="choice-grid" aria-label="Choose your answer">
+            <button class="brutal-button brutal-button--pink choice-button" id="yes-button" type="button"><span aria-hidden="true">❤️</span> YES</button>
+            <button class="brutal-button brutal-button--white choice-button" id="no-button" type="button"><span aria-hidden="true">🤍</span> NO</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Thank-you screen -->
+      <section class="screen" id="final" aria-labelledby="final-title" hidden>
+        <div class="final-content">
+          <div class="heart-art">
+            <!-- The photo is clipped with a real heart silhouette. -->
+            <svg viewBox="0 0 320 290" role="img" aria-label="Pink peonies and a love note in a heart shape">
+              <defs>
+                <clipPath id="photo-heart">
+                  <path d="M160 267C122 234 37 180 37 103 37 58 71 31 110 31c24 0 42 11 50 28 8-17 26-28 50-28 39 0 73 27 73 72 0 77-85 131-123 164Z" />
+                </clipPath>
+              </defs>
+              <image href="photo.jpg" width="320" height="290" preserveAspectRatio="xMidYMid slice" clip-path="url(#photo-heart)" />
+              <path d="M160 267C122 234 37 180 37 103 37 58 71 31 110 31c24 0 42 11 50 28 8-17 26-28 50-28 39 0 73 27 73 72 0 77-85 131-123 164Z" fill="none" stroke="#111111" stroke-width="10" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <p class="eyebrow">FROM ME, ALWAYS</p>
+          <h2 id="final-title">I MISS YOU TOO<span class="pink-dot">.</span></h2>
+          <div class="audio-actions">
+            <button class="brutal-button brutal-button--white" id="play-audio-button" type="button">
+              Wanna hear something? <span aria-hidden="true">♫</span>
+            </button>
+            <button class="brutal-button brutal-button--pink" id="close-audio-button" type="button" hidden>
+              Close <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <p class="subtitle">Thank you for visiting.</p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Confirmation dialog for the initial NO response -->
+    <div class="modal" id="confirmation-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal__backdrop" data-close-modal></div>
+      <div class="modal__card">
+        <p class="eyebrow">WAIT A SECOND</p>
+        <h2 id="modal-title">🥺 Are you sure?</h2>
+        <div class="modal__choices">
+          <button class="brutal-button brutal-button--pink" id="confirm-no-button" type="button">YES,I MISS YOU</button>
+          <button class="brutal-button brutal-button--white" id="cancel-no-button" type="button">NO, I MISS YOU</button>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
